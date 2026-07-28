@@ -107,7 +107,7 @@ V = np.zeros(n_states)
 # Policy Evaluation Function
 # -------------------------------------------------
 
-def policy_evaluation(env, policy, gamma=0.99, theta=1e-8):
+def policy_evaluation(env, policy, gamma=0.93, theta=1e-8):
     """
     Performs iterative policy evaluation using the Bellman expectation equation.
 
@@ -153,7 +153,6 @@ def policy_evaluation(env, policy, gamma=0.99, theta=1e-8):
             break
 
     return V, iteration
-
 ```
 
 ---
@@ -166,22 +165,22 @@ Name: PULI NAGA NEERAJ
 
 Register Number: 212223240130
 
-Number of iterations: 71
+Number of iterations: 54
 
 State-Value Function:
-[0.0123561  0.01042443 0.01933841 0.00947773 0.01478703 0.
- 0.03889444 0.         0.03260246 0.08433763 0.13781085 0.
- 0.         0.17034482 0.43357944 0.        ]
+[0.0062116  0.00563164 0.0123789  0.00537961 0.00866174 0.
+ 0.02985245 0.         0.02238149 0.06522124 0.11601874 0.
+ 0.         0.14212123 0.40393165 0.        ]
 Name: PULI NAGA NEERAJ
 
 Register Number: 212223240130
 
 
 State-Value Function as 4x4 Grid:
-[[0.0124 0.0104 0.0193 0.0095]
- [0.0148 0.     0.0389 0.    ]
- [0.0326 0.0843 0.1378 0.    ]
- [0.     0.1703 0.4336 0.    ]]
+[[0.0062 0.0056 0.0124 0.0054]
+ [0.0087 0.     0.0299 0.    ]
+ [0.0224 0.0652 0.116  0.    ]
+ [0.     0.1421 0.4039 0.    ]]
 
 
 ```
@@ -196,8 +195,15 @@ Iterative policy evaluation was implemented successfully using the Gymnasium Fro
 ## Inference
 
 ```text
+--> For gamma=093, number of iterations=54
+--> In the FrozenLake environment, the is_slippery parameter determines whether the environment is deterministic or stochastic.
+is_slippery = False : The environment is deterministic.
 
+is_slippery = True : The environment is stochastic
 
+--> States closer to the goal have higher values, as they have a greater probability of reaching the goal and receiving a reward.
+--> States near holes or dead ends have lower values, since following the policy from these states is more likely to terminate without obtaining a reward.
+--> The discount factor affects the state values. A higher discount factor gives more importance to future rewards, resulting in larger state values, while a lower discount factor emphasizes immediate rewards.
 
 ```
 
