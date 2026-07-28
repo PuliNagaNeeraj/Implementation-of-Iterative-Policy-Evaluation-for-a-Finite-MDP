@@ -162,10 +162,26 @@ def policy_evaluation(env, policy, gamma=0.99, theta=1e-8):
 
 ```text
 
-Number of Iterations: 
+Name: PULI NAGA NEERAJ
+
+Register Number: 212223240130
+
+Number of iterations: 71
+
+State-Value Function:
+[0.0123561  0.01042443 0.01933841 0.00947773 0.01478703 0.
+ 0.03889444 0.         0.03260246 0.08433763 0.13781085 0.
+ 0.         0.17034482 0.43357944 0.        ]
+Name: PULI NAGA NEERAJ
+
+Register Number: 212223240130
+
 
 State-Value Function as 4x4 Grid:
-
+[[0.0124 0.0104 0.0193 0.0095]
+ [0.0148 0.     0.0389 0.    ]
+ [0.0326 0.0843 0.1378 0.    ]
+ [0.     0.1703 0.4336 0.    ]]
 
 
 ```
