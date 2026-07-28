@@ -195,7 +195,7 @@ Iterative policy evaluation was implemented successfully using the Gymnasium Fro
 ## Inference
 
 ```text
---> For gamma=093, number of iterations=54
+--> For gamma=0.93, number of iterations=54
 --> In the FrozenLake environment, the is_slippery parameter determines whether the environment is deterministic or stochastic.
 is_slippery = False : The environment is deterministic.
 
