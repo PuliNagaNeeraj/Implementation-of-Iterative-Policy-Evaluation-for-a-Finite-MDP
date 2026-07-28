@@ -100,17 +100,59 @@ Where:
 
 ```python
 
+# Initialize value function
+V = np.zeros(n_states)
 
 # -------------------------------------------------
 # Policy Evaluation Function
 # -------------------------------------------------
 
+def policy_evaluation(env, policy, gamma=0.99, theta=1e-8):
+    """
+    Performs iterative policy evaluation using the Bellman expectation equation.
 
-# -------------------------------------------------
-# Display Output
-# -------------------------------------------------
+    Parameters:
+        env    : Gymnasium FrozenLake environment
+        policy : Fixed policy to be evaluated
+        gamma  : Discount factor
+        theta  : Convergence threshold
 
-# Change the parameters and observe the results
+    Returns:
+        V         : Estimated state-value function
+        iteration : Number of iterations used for convergence
+    """
+
+    V = np.zeros(env.observation_space.n)
+    iteration = 0
+
+    while True:
+        delta = 0
+        new_V = np.copy(V)
+
+        for state in range(env.observation_space.n):
+
+            value = 0
+
+            for action in range(env.action_space.n):
+
+                action_prob = policy[state][action]
+
+                for prob, next_state, reward, done in env.P[state][action]:
+
+                    value += action_prob * prob * (
+                        reward + gamma * V[next_state] * (not done)
+                    )
+
+            new_V[state] = value
+            delta = max(delta, abs(V[state] - new_V[state]))
+
+        V = new_V
+        iteration += 1
+
+        if delta < theta:
+            break
+
+    return V, iteration
 
 ```
 
