@@ -203,7 +203,8 @@ is_slippery = True : The environment is stochastic
 
 --> States closer to the goal have higher values, as they have a greater probability of reaching the goal and receiving a reward.
 --> States near holes or dead ends have lower values, since following the policy from these states is more likely to terminate without obtaining a reward.
---> The discount factor affects the state values. A higher discount factor gives more importance to future rewards, resulting in larger state values, while a lower discount factor emphasizes immediate rewards.
+--> The discount factor affects the state values. A higher discount factor gives more importance to future rewards,
+    resulting in larger state values, while a lower discount factor emphasizes immediate rewards.
 
 ```
 
